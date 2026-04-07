@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../Desktop/c-project"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp"
+		}
+	}
+}

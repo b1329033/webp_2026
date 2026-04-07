@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>資工選課表 HW2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 延用之前的 Table Style */
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        td, th { border: 1px solid #ddd; padding: 8px; }
+        tr:nth-child(even){background-color: #f2f2f2;}
+        tr:hover {background-color: #ddd;}
+        th {
+            padding-top: 12px; padding-bottom: 12px;
+            text-align: left; background-color: #04AA6D; color: white;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <h2>資工選課表</h2>
+
+    <table id="csie">
+      <thead>
+        <tr>
+          <th>開課單位</th>
+          <th>課程名稱</th>
+          <th>授課教師</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>資工系</td>
+          <td>
+            <a href="#" class="text-decoration-none" 
+               data-bs-toggle="popover" 
+               title="課程詳細資料" 
+               data-bs-content="學年/學期: 114/2, 地點: 資工系電腦教室2">
+               物件導向軟體設計
+            </a>
+          </td>
+          <td>黃崇源</td>
+        </tr>
+        <tr><td>資工系</td><td>計算機網路實驗</td><td>李春良</td></tr>
+        <tr><td>資工系</td><td>作業系統實務</td><td>張哲維</td></tr>
+        <tr><td>資工系</td><td>生物統計</td><td>陳光武</td></tr>
+        <tr><td>資工系</td><td>通訊系統</td><td>陳仁暉</td></tr>
+        <tr><td>資工系</td><td>軟硬體專題(2)</td><td>魏志達</td></tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-success" onclick="changeResult()">Change</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // 實作講義中的 changeResult 功能 [cite: 100]
+        function changeResult() {
+            var myTable = document.getElementById("csie"); // 
+            // 將第一列(rows[1])的第三個儲存格(cells[2])內容改為「李春良」[cite: 102]
+            myTable.rows[1].cells[2].innerHTML = "李春良"; 
+        }
+
+        // 初始化 Popover 功能 [cite: 73]
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
+</body>
+</html>
