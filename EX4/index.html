@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex4 Christmas Tree</title>
+</head>
+<body>
+    <h1>長庚大學 1987 - 聖誕樹作業</h1>
+    <p>請按下 F12 並開啟 Console 查看結果</p>
+
+    <script>
+        // 1. 定義重複字元的函式
+        function repeatchar(n, arg_char) {
+            var str = "";
+            for (var i = 0; i < n; i++) {
+                str += arg_char;
+            }
+            return str;
+        }
+
+        // 2. 定義畫出樹頂（三角形）的函式
+        function printTreeTop(n) {
+            for (var i = 0; i < n; i++) {
+                var spaces = repeatchar(n - i - 1, ' '); 
+                var stars = repeatchar(2 * i + 1, '*');
+                console.log('"' + spaces + stars + '"');
+            }
+        }
+
+        // 3. 定義畫出樹幹（直線）的函式
+        function printTreeBottom(n) {
+            for (var i = 0; i < n; i++) {
+                var spaces = repeatchar(n - 1, ' ');
+                console.log('"' + spaces + "*" + '"');
+            }
+        }
+
+        // 4. 定義主函式並執行
+        function tree(n) {
+            printTreeTop(n);
+            printTreeBottom(3); // 畫出三層樹幹
+        }
+
+        // 執行畫出 4 層樹冠的聖誕樹
+        tree(4);
+    </script>
+</body>
+</html>
