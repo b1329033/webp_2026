@@ -1,0 +1,144 @@
+/* 全域現代感中文字體與背景重設 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans TC", sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 最外層縱向容器：確保標題居中，內容整體向下排列 */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 讓標題與下方的卡片在中央對齊線對齊 */
+  gap: 28px;          /* 標題與卡片之間的舒適距離 */
+}
+
+/* 獨立置中的大標題 */
+.game-title {
+  font-size: 34px;    
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* 遊戲主體卡片：橫向包覆棋盤與資訊 */
+.game-card {
+  display: flex;
+  flex-direction: row;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  align-items: flex-start; /* 確保左右高度在頂部水平對齊 */
+}
+
+/* 棋盤九宮格側 */
+.game-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 棋盤格子（3x3 完美比例與微動畫） */
+.square {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  float: left;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 80px;
+  height: 84px;   
+  width: 84px;
+  margin-right: -2px;
+  margin-top: -2px;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #2c3e50;
+  transition: all 0.2s ease;
+}
+
+.square:focus {
+  outline: none;
+}
+
+/* 滑鼠滑過格子的浮動反饋 */
+.square:hover {
+  background: #f8fafc;
+  z-index: 2;
+  border-color: #cbd5e1;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* 右側資訊與歷史按鈕排版 */
+.game-info {
+  margin-left: 45px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 狀態標籤 */
+.status {
+  font-size: 20px;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 20px;
+  background: #ebf0f6;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-align: center; /* 讓狀態文字在自己的框框裡置中 */
+}
+
+.game-info ol {
+  padding-left: 0;
+  list-style: none; 
+  max-height: 250px; /* 超過特定步數會啟用優雅滾動 */
+  overflow-y: auto; 
+  padding-right: 5px;
+  margin: 0;
+}
+
+/* 時間旅行按鈕 */
+.time-travel-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  width: 100%;
+  text-align: center; /* 讓按鈕文字也置中，看起來加倍對稱 */
+  margin-bottom: 8px;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.time-travel-btn:hover {
+  background: #3182ce;
+  color: #ffffff;
+  border-color: #3182ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(49, 130, 206, 0.2);
+}
+
+.time-travel-btn:active {
+  transform: translateY(0);
+}
